@@ -1,0 +1,47 @@
+{
+  "name": "base-ts",
+  "version": "1.0.0",
+  "author": "Gonzalo Sergio Zago",
+  "license": "MIT",
+  "description": "Base structure hexagonal architecture",
+  "main": "./src/server.ts",
+  "scripts": {
+    "dev": "nodemon --exitcrash",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "module-alias": "^2.2.3",
+    "mongoose": "^8.4.5",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.19",
+    "jest": "^25.1.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "verbose": true
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@routes": "./src/routes",
+    "@config": "./src/config/",
+    "@domain": "./src/domain/entities/",
+    "@services": "./src/application/services/",
+    "@actions": "./src/application/actions/",
+    "@delivery": "./src/delivery/",
+    "@repositories": "./src/domain/repositories/",
+    "@infrastructure": "./src/infrastructure/"
+  }
+}
